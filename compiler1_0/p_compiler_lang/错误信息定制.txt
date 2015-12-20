@@ -1,0 +1,9 @@
+
+error 20: 标识符长度超出规定范围
+error 21: 整数过大
+error 22: 缺少右单引号
+error 23: 字符不合法
+error 24: 多余的单引号
+error 25: 字符串过长
+error 26: 非法字符
+error 27: 程序不完整

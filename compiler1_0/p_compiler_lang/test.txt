@@ -1,0 +1,56 @@
+var a1,a2,a3,a4,a5:integer;
+ g :integer;
+procedure p1;
+	var l1,l2,l3,l4,l5:integer;
+	g2:integer;
+
+	procedure p2;
+		procedure p3(var tmp:integer);
+			procedure p4(var tmp:integer);
+				var tmp4: integer;
+				procedure p5(var tmp:integer);
+					begin
+						tmp:=5;
+						a5:= 5;
+						l5:=5;
+					end;
+			begin
+				p5(tmp4);
+				tmp:=tmp4;
+				a4:=4;
+				l4:=4;
+			end;
+		begin
+			p4(tmp);
+			a3:=3;
+			l3:=3
+		end;
+	begin
+		p3(g);
+		p3(g2);
+		l2:=2;
+		a2:=2
+	end;
+begin
+	p2;
+	a1:=1;
+	l1:=1;
+	write(l1);
+	write(l2);
+	write(l3);
+	write(l4);
+	write(l5);
+	write(g2);
+end; 
+begin
+	p1;
+	write(a1);
+	write(a2);
+	write(a3);
+	write(a4);
+	write(a5);
+	write(g);
+end
+.
+
+

@@ -1,0 +1,78 @@
+0   . VAR      n              i              a1            
+1   . VAR      n              i              a2            
+2   . VAR      n              i              a3            
+3   . VAR      n              i              a4            
+4   . VAR      n              i              a5            
+5   . VAR      n              i              g             
+6   . VART                                   0             
+7   . J                                      begin0        
+8   . DEC      p                             p1            
+9   . VAR      n              i              l1            
+10  . VAR      n              i              l2            
+11  . VAR      n              i              l3            
+12  . VAR      n              i              l4            
+13  . VAR      n              i              l5            
+14  . VAR      n              i              g2            
+15  . VART                                   0             
+16  . J                                      begin1        
+17  . DEC      p                             p2            
+18  . VART                                   0             
+19  . J                                      begin2        
+20  . DEC      p                             p3            
+21  . PAR      v              i              tmp           
+22  . VART                                   0             
+23  . J                                      begin3        
+24  . DEC      p                             p4            
+25  . PAR      v              i              tmp           
+26  . VAR      n              i              tmp4          
+27  . VART                                   0             
+28  . J                                      begin4        
+29  . DEC      p                             p5            
+30  . PAR      v              i              tmp           
+31  . VART                                   0             
+32  . J                                      begin5        
+33  . LABEL                                  begin5        
+34  . ADD      0              5              tmp           
+35  . ADD      0              5              a5            
+36  . ADD      0              5              l5            
+37  . JR                                                   
+38  . LABEL                                  begin4        
+39  . PUSH                                   tmp4          
+40  . CALL                                   p5            
+41  . ADD      0              tmp4           tmp           
+42  . ADD      0              4              a4            
+43  . ADD      0              4              l4            
+44  . JR                                                   
+45  . LABEL                                  begin3        
+46  . PUSH                                   tmp           
+47  . CALL                                   p4            
+48  . ADD      0              3              a3            
+49  . ADD      0              3              l3            
+50  . JR                                                   
+51  . LABEL                                  begin2        
+52  . PUSH                                   g             
+53  . CALL                                   p3            
+54  . PUSH                                   g2            
+55  . CALL                                   p3            
+56  . ADD      0              2              l2            
+57  . ADD      0              2              a2            
+58  . JR                                                   
+59  . LABEL                                  begin1        
+60  . CALL                                   p2            
+61  . ADD      0              1              a1            
+62  . ADD      0              1              l1            
+63  . WRITE                                  l1            
+64  . WRITE                                  l2            
+65  . WRITE                                  l3            
+66  . WRITE                                  l4            
+67  . WRITE                                  l5            
+68  . WRITE                                  g2            
+69  . JR                                                   
+70  . LABEL                                  begin0        
+71  . CALL                                   p1            
+72  . WRITE                                  a1            
+73  . WRITE                                  a2            
+74  . WRITE                                  a3            
+75  . WRITE                                  a4            
+76  . WRITE                                  a5            
+77  . WRITE                                  g             

@@ -1,0 +1,99 @@
+# depslib dependency file v1.0
+1448267131 source:d:\a_study_dir\±‡“Î‘≠¿Ì\compiler\p_compiler_lang\main.cpp
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<set>
+	<fstream>
+	<iostream>
+
+1448796443 source:e:\±‡“Î\p_compiler_lang\main.cpp
+	"compiler_head.h"
+	"four_code.h"
+
+1448795482 e:\±‡“Î\p_compiler_lang\compiler_head.h
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<set>
+	<fstream>
+	<iostream>
+
+1448796526 e:\±‡“Î\p_compiler_lang\four_code.h
+	"compiler_head.h"
+
+1449119174 source:d:\a_study_dir\±‡“Î‘≠¿Ì\compiler\four_code\p_compiler_lang\main.cpp
+	"compiler_head.h"
+	"four_code.h"
+
+1448976258 d:\a_study_dir\±‡“Î‘≠¿Ì\compiler\four_code\p_compiler_lang\compiler_head.h
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<set>
+	<fstream>
+	<iostream>
+
+1449103374 d:\a_study_dir\±‡“Î‘≠¿Ì\compiler\four_code\p_compiler_lang\four_code.h
+	"compiler_head.h"
+
+1448981169 source:e:\±‡“Î\four_code\p_compiler_lang\main.cpp
+	"compiler_head.h"
+	"four_code.h"
+
+1448976258 e:\±‡“Î\four_code\p_compiler_lang\compiler_head.h
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<set>
+	<fstream>
+	<iostream>
+
+1449037727 e:\±‡“Î\four_code\p_compiler_lang\four_code.h
+	"compiler_head.h"
+
+1449161111 source:d:\a_study_dir\compiler\four_code\p_compiler_lang\main.cpp
+	"compiler_head.h"
+	"four_code.h"
+
+1448976258 d:\a_study_dir\compiler\four_code\p_compiler_lang\compiler_head.h
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<set>
+	<fstream>
+	<iostream>
+
+1449103374 d:\a_study_dir\compiler\four_code\p_compiler_lang\four_code.h
+	"compiler_head.h"
+
+1450010230 source:e:\±‡“Î\compiler\p_compiler_lang\main.cpp
+	"compiler_head.h"
+	"four_code.h"
+
+1450010660 e:\±‡“Î\compiler\p_compiler_lang\compiler_head.h
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<set>
+	<fstream>
+	<iostream>
+
+1449103374 e:\±‡“Î\compiler\p_compiler_lang\four_code.h
+	"compiler_head.h"
+
+1450578365 source:e:\±‡“Î\compiler1_0\p_compiler_lang\main.cpp
+	"compiler_head.h"
+	"four_code.h"
+
+1450010660 e:\±‡“Î\compiler1_0\p_compiler_lang\compiler_head.h
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<set>
+	<fstream>
+	<iostream>
+
+1450578389 e:\±‡“Î\compiler1_0\p_compiler_lang\four_code.h
+	"compiler_head.h"
+
