@@ -110,7 +110,60 @@ char ch = ' ';              //每次读出的单个字符
 string line = "",           //记录""中的字符串
        alfa = "";           //记录每次读出的字符串
 
-
+string ErrorList[100];
+void errorinit(){
+    ErrorList[0]    = "";
+    ErrorList[1]    = "";
+    ErrorList[2]    = "";
+    ErrorList[3]    = "";
+    ErrorList[4]    = "";
+    ErrorList[5]    = "";
+    ErrorList[6]    = "";
+    ErrorList[7]    = "";
+    ErrorList[8]    = "";
+    ErrorList[9]    = "";
+    ErrorList[10]   = "";
+    ErrorList[11]   = "";
+    ErrorList[12]   = "";
+    ErrorList[13]   = "";
+    ErrorList[14]   = "";
+    ErrorList[15]   = "";
+    ErrorList[16]   = "";
+    ErrorList[17]   = "";
+    ErrorList[18]   = "";
+    ErrorList[19]   = "";
+    ErrorList[20]   = "";
+    ErrorList[21]   = "";
+    ErrorList[22]   = "";
+    ErrorList[23]   = "";
+    ErrorList[24]   = "";
+    ErrorList[25]   = "";
+    ErrorList[26]   = "";
+    ErrorList[27]   = "";
+    ErrorList[28]   = "";
+    ErrorList[29]   = "";
+    ErrorList[30]   = "";
+    ErrorList[31]   = "";
+    ErrorList[32]   = "";
+    ErrorList[33]   = "";
+    ErrorList[34]   = "";
+    ErrorList[35]   = "";
+    ErrorList[36]   = "";
+    ErrorList[37]   = "";
+    ErrorList[38]   = "";
+    ErrorList[39]   = "";
+    ErrorList[40]   = "";
+    ErrorList[41]   = "";
+    ErrorList[42]   = "";
+    ErrorList[43]   = "";
+    ErrorList[44]   = "";
+    ErrorList[45]   = "";
+    ErrorList[46]   = "";
+    ErrorList[47]   = "";
+    ErrorList[48]   = "";
+    ErrorList[49]   = "";
+    ErrorList[50]   = "";
+}
 void error(int eno){                   //错误处理
     printf("*****Error%d: line%d char(%d)*****\n",eno, cx + 1, cc);
 }//error end
