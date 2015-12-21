@@ -331,6 +331,10 @@ int parameterlist()
     }
     else
         error(16);  //缺少右括号
+
+    if(paranumber == 0){
+        error(57);  //参数表中至少有一个参数
+    }
     return paranumber;
 }//parameterlist end
 

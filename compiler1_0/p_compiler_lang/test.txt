@@ -50,7 +50,7 @@ begin
 	write(a4);
 	write(a5);
 	write(g);
-end
-.
+end.
+
 
 
