@@ -2,24 +2,6 @@ addi $s0, $sp, 0
 addi $sp, $sp, -80
 sw  $sp, 0($sp)
 
-#VAR n i a1
-
-
-#VAR n i a2
-
-
-#VAR n i a3
-
-
-#VAR n i a4
-
-
-#VAR n i a5
-
-
-#VAR n i g
-
-
 #VART   0
 
 
@@ -27,27 +9,21 @@ sw  $sp, 0($sp)
 
 j   begin0
 
-#DEC p  p1
+#DEC p  heh
 
-p1:   
-sw  $ra, -20($sp)
+heh:   
+sw  $ra, -48($sp)
 
-#VAR n i l1
-
-
-#VAR n i l2
+#VAR n i vn
 
 
-#VAR n i l3
+#VAR n i out
 
 
-#VAR n i l4
+#VAR n i i
 
 
-#VAR n i l5
-
-
-#VAR n i g2
+#VAR a 10 a
 
 
 #VART   0
@@ -57,10 +33,15 @@ sw  $ra, -20($sp)
 
 j   begin1
 
-#DEC p  p2
+#DEC p  outter
 
-p2:   
-sw  $ra, -20($sp)
+outter:   
+sw  $ra, -48($sp)
+
+#PAR n i y
+
+lw  $t1, 0($s0)
+sw  $t1, -52($sp)
 
 #VART   0
 
@@ -69,15 +50,10 @@ sw  $ra, -20($sp)
 
 j   begin2
 
-#DEC p  p3
+#DEC p  writeoo
 
-p3:   
-sw  $ra, -20($sp)
-
-#PAR v i tmp
-
-lw  $t1, -4($s0)
-sw  $t1, -24($sp)
+writeoo:   
+sw  $ra, -48($sp)
 
 #VART   0
 
@@ -86,18 +62,34 @@ sw  $t1, -24($sp)
 
 j   begin3
 
-#DEC p  p4
+#LABEL   begin3
 
-p4:   
-sw  $ra, -20($sp)
+begin3:   
 
-#PAR v i tmp
+#WRITE   "  "
 
-lw  $t1, -4($s0)
-sw  $t1, -24($sp)
+addi $v0, $zero, 11
+addi $a0, $zero, 32
+syscall   
+addi $a0, $zero, 32
+syscall   
 
-#VAR n i tmp4
+#JR   
 
+lw  $v0, -44($sp)
+lw  $ra, -48($sp)
+lw  $sp, -40($sp)
+jr   $ra
+
+#DEC p  foo
+
+foo:   
+sw  $ra, -48($sp)
+
+#PAR n i y
+
+lw  $t1, 0($s0)
+sw  $t1, -52($sp)
 
 #VART   0
 
@@ -106,353 +98,497 @@ sw  $t1, -24($sp)
 
 j   begin4
 
-#DEC p  p5
+#DEC p  pcd
 
-p5:   
-sw  $ra, -20($sp)
+pcd:   
+sw  $ra, -48($sp)
 
-#PAR v i tmp
+#PAR n i x
 
-lw  $t1, -4($s0)
-sw  $t1, -24($sp)
+lw  $t1, 0($s0)
+sw  $t1, -52($sp)
 
-#VART   0
+#VAR n i t
+
+
+#VART   1
 
 
 #J   begin5
 
 j   begin5
 
+#DEC f  sum
+
+sum:   
+sw  $ra, -48($sp)
+
+#PAR v i x
+
+lw  $t1, -4($s0)
+sw  $t1, -52($sp)
+
+#VAR n i t
+
+
+#VART   3
+
+
+#J   begin6
+
+j   begin6
+
+#LABEL   begin6
+
+begin6:   
+
+#SUB x 1 #0
+
+lw  $t0, -52($sp)
+lw  $t1, 0($t0)
+addi $t2, $zero, 1
+sub $t3, $t1, $t2
+sw  $t3, -60($sp)
+
+#ADD 0 #0 t
+
+addi $t1, $zero, 0
+lw  $t2, -60($sp)
+add $t3, $t1, $t2
+sw  $t3, -56($sp)
+
+#BNE x 1 if0
+
+lw  $t0, -52($sp)
+lw  $t1, 0($t0)
+addi $t2, $zero, 1
+bne $t1, $t2, if0
+
+#ADD 0 1 sum
+
+addi $t1, $zero, 0
+addi $t2, $zero, 1
+add $t3, $t1, $t2
+sw  $t3, -44($sp)
+
+#J   else0
+
+j   else0
+
+#LABEL   if0
+
+if0:   
+
+#PUSH   t
+
+lw  $t1, -56($sp)
+addi $t2, $sp, -56
+sw  $t1, 0($s0)
+sw  $t2, -4($s0)
+
+#CALL   sum
+
+sw  $sp, -112($sp)
+lw  $t0, 0($sp)
+sw  $t0, -72($sp)
+lw  $t0, -4($sp)
+sw  $t0, -76($sp)
+lw  $t0, -8($sp)
+sw  $t0, -80($sp)
+lw  $t0, -12($sp)
+sw  $t0, -84($sp)
+lw  $t0, -16($sp)
+sw  $t0, -88($sp)
+lw  $t0, -20($sp)
+sw  $t0, -92($sp)
+lw  $t0, -24($sp)
+sw  $t0, -96($sp)
+lw  $t0, -28($sp)
+sw  $t0, -100($sp)
+lw  $t0, -32($sp)
+sw  $t0, -104($sp)
+lw  $t0, -36($sp)
+sw  $t0, -108($sp)
+addi $sp, $sp, -72
+jal   sum
+
+#ADD sum 0 #1
+
+addi $t1, $v0, 0
+addi $t2, $zero, 0
+add $t3, $t1, $t2
+sw  $t3, -64($sp)
+
+#ADD #1 x #2
+
+lw  $t1, -64($sp)
+lw  $t0, -52($sp)
+lw  $t2, 0($t0)
+add $t3, $t1, $t2
+sw  $t3, -68($sp)
+
+#ADD 0 #2 sum
+
+addi $t1, $zero, 0
+lw  $t2, -68($sp)
+add $t3, $t1, $t2
+sw  $t3, -44($sp)
+
+#LABEL   else0
+
+else0:   
+
+#JR   
+
+lw  $v0, -44($sp)
+lw  $ra, -48($sp)
+lw  $sp, -40($sp)
+jr   $ra
+
 #LABEL   begin5
 
 begin5:   
 
-#ADD 0 5 tmp
+#ADD 0 x t
 
 addi $t1, $zero, 0
-addi $t2, $zero, 5
+lw  $t2, -52($sp)
 add $t3, $t1, $t2
-lw  $t0, -24($sp)
-sw  $t3, 0($t0)
+sw  $t3, -56($sp)
 
-#ADD 0 5 a5
+#PUSH   t
 
-addi $t1, $zero, 0
-addi $t2, $zero, 5
-add $t3, $t1, $t2
+lw  $t1, -56($sp)
+addi $t2, $sp, -56
+sw  $t1, 0($s0)
+sw  $t2, -4($s0)
+
+#CALL   sum
+
+sw  $sp, -104($sp)
 lw  $t0, 0($sp)
-sw  $t3, -28($t0)
+sw  $t0, -64($sp)
+lw  $t0, -4($sp)
+sw  $t0, -68($sp)
+lw  $t0, -8($sp)
+sw  $t0, -72($sp)
+lw  $t0, -12($sp)
+sw  $t0, -76($sp)
+lw  $t0, -16($sp)
+sw  $t0, -80($sp)
+lw  $t0, -20($sp)
+sw  $t0, -84($sp)
+lw  $t0, -24($sp)
+sw  $t0, -88($sp)
+lw  $t0, -28($sp)
+sw  $t0, -92($sp)
+lw  $t0, -32($sp)
+sw  $t0, -96($sp)
+lw  $t0, -36($sp)
+sw  $t0, -100($sp)
+sw  $sp, -80($sp)
+addi $sp, $sp, -64
+jal   sum
 
-#ADD 0 5 l5
+#ADD sum 0 #0
+
+addi $t1, $v0, 0
+addi $t2, $zero, 0
+add $t3, $t1, $t2
+sw  $t3, -60($sp)
+
+#ADD 0 #0 out
 
 addi $t1, $zero, 0
-addi $t2, $zero, 5
+lw  $t2, -60($sp)
 add $t3, $t1, $t2
 lw  $t0, -4($sp)
-sw  $t3, -40($t0)
+sw  $t3, -56($t0)
 
 #JR   
 
-lw  $v0, -16($sp)
-lw  $ra, -20($sp)
-lw  $sp, -12($sp)
+lw  $v0, -44($sp)
+lw  $ra, -48($sp)
+lw  $sp, -40($sp)
 jr   $ra
 
 #LABEL   begin4
 
 begin4:   
 
-#PUSH   tmp4
+#PUSH   y
 
-lw  $t1, -28($sp)
-addi $t2, $sp, -28
+lw  $t1, -52($sp)
+addi $t2, $sp, -52
 sw  $t1, 0($s0)
 sw  $t2, -4($s0)
 
-#CALL   p5
+#CALL   pcd
 
-sw  $sp, -44($sp)
+sw  $sp, -96($sp)
 lw  $t0, 0($sp)
-sw  $t0, -32($sp)
+sw  $t0, -56($sp)
 lw  $t0, -4($sp)
-sw  $t0, -36($sp)
+sw  $t0, -60($sp)
 lw  $t0, -8($sp)
-sw  $t0, -40($sp)
-sw  $sp, -48($sp)
-addi $sp, $sp, -32
-jal   p5
-
-#ADD 0 tmp4 tmp
-
-addi $t1, $zero, 0
-lw  $t2, -28($sp)
-add $t3, $t1, $t2
+sw  $t0, -64($sp)
+lw  $t0, -12($sp)
+sw  $t0, -68($sp)
+lw  $t0, -16($sp)
+sw  $t0, -72($sp)
+lw  $t0, -20($sp)
+sw  $t0, -76($sp)
 lw  $t0, -24($sp)
-sw  $t3, 0($t0)
+sw  $t0, -80($sp)
+lw  $t0, -28($sp)
+sw  $t0, -84($sp)
+lw  $t0, -32($sp)
+sw  $t0, -88($sp)
+lw  $t0, -36($sp)
+sw  $t0, -92($sp)
+sw  $sp, -68($sp)
+addi $sp, $sp, -56
+jal   pcd
 
-#ADD 0 4 a4
+#CALL   writeoo
 
-addi $t1, $zero, 0
-addi $t2, $zero, 4
-add $t3, $t1, $t2
+sw  $sp, -96($sp)
 lw  $t0, 0($sp)
-sw  $t3, -24($t0)
-
-#ADD 0 4 l4
-
-addi $t1, $zero, 0
-addi $t2, $zero, 4
-add $t3, $t1, $t2
+sw  $t0, -56($sp)
 lw  $t0, -4($sp)
-sw  $t3, -36($t0)
-
-#JR   
-
-lw  $v0, -16($sp)
-lw  $ra, -20($sp)
-lw  $sp, -12($sp)
-jr   $ra
-
-#LABEL   begin3
-
-begin3:   
-
-#PUSH   tmp
-
-lw  $t2, -24($sp)
-lw  $t1, 0($t2)
-sw  $t1, 0($s0)
-sw  $t2, -4($s0)
-
-#CALL   p4
-
-sw  $sp, -40($sp)
-lw  $t0, 0($sp)
-sw  $t0, -28($sp)
-lw  $t0, -4($sp)
-sw  $t0, -32($sp)
+sw  $t0, -60($sp)
 lw  $t0, -8($sp)
-sw  $t0, -36($sp)
-sw  $sp, -40($sp)
-addi $sp, $sp, -28
-jal   p4
-
-#ADD 0 3 a3
-
-addi $t1, $zero, 0
-addi $t2, $zero, 3
-add $t3, $t1, $t2
-lw  $t0, 0($sp)
-sw  $t3, -20($t0)
-
-#ADD 0 3 l3
-
-addi $t1, $zero, 0
-addi $t2, $zero, 3
-add $t3, $t1, $t2
-lw  $t0, -4($sp)
-sw  $t3, -32($t0)
+sw  $t0, -64($sp)
+lw  $t0, -12($sp)
+sw  $t0, -68($sp)
+lw  $t0, -16($sp)
+sw  $t0, -72($sp)
+lw  $t0, -20($sp)
+sw  $t0, -76($sp)
+lw  $t0, -24($sp)
+sw  $t0, -80($sp)
+lw  $t0, -28($sp)
+sw  $t0, -84($sp)
+lw  $t0, -32($sp)
+sw  $t0, -88($sp)
+lw  $t0, -36($sp)
+sw  $t0, -92($sp)
+addi $sp, $sp, -56
+jal   writeoo
 
 #JR   
 
-lw  $v0, -16($sp)
-lw  $ra, -20($sp)
-lw  $sp, -12($sp)
+lw  $v0, -44($sp)
+lw  $ra, -48($sp)
+lw  $sp, -40($sp)
 jr   $ra
 
 #LABEL   begin2
 
 begin2:   
 
-#PUSH   g
+#PUSH   y
 
-lw  $t0, 0($sp)
-lw  $t1, -32($t0)
-addi $t2, $t0, -32
+lw  $t1, -52($sp)
+addi $t2, $sp, -52
 sw  $t1, 0($s0)
 sw  $t2, -4($s0)
 
-#CALL   p3
+#CALL   foo
 
-sw  $sp, -36($sp)
+sw  $sp, -96($sp)
 lw  $t0, 0($sp)
-sw  $t0, -24($sp)
+sw  $t0, -56($sp)
 lw  $t0, -4($sp)
-sw  $t0, -28($sp)
+sw  $t0, -60($sp)
 lw  $t0, -8($sp)
-sw  $t0, -32($sp)
-sw  $sp, -32($sp)
-addi $sp, $sp, -24
-jal   p3
-
-#PUSH   g2
-
-lw  $t0, -4($sp)
-lw  $t1, -44($t0)
-addi $t2, $t0, -44
-sw  $t1, 0($s0)
-sw  $t2, -4($s0)
-
-#CALL   p3
-
-sw  $sp, -36($sp)
-lw  $t0, 0($sp)
-sw  $t0, -24($sp)
-lw  $t0, -4($sp)
-sw  $t0, -28($sp)
-lw  $t0, -8($sp)
-sw  $t0, -32($sp)
-sw  $sp, -32($sp)
-addi $sp, $sp, -24
-jal   p3
-
-#ADD 0 2 l2
-
-addi $t1, $zero, 0
-addi $t2, $zero, 2
-add $t3, $t1, $t2
-lw  $t0, -4($sp)
-sw  $t3, -28($t0)
-
-#ADD 0 2 a2
-
-addi $t1, $zero, 0
-addi $t2, $zero, 2
-add $t3, $t1, $t2
-lw  $t0, 0($sp)
-sw  $t3, -16($t0)
+sw  $t0, -64($sp)
+lw  $t0, -12($sp)
+sw  $t0, -68($sp)
+lw  $t0, -16($sp)
+sw  $t0, -72($sp)
+lw  $t0, -20($sp)
+sw  $t0, -76($sp)
+lw  $t0, -24($sp)
+sw  $t0, -80($sp)
+lw  $t0, -28($sp)
+sw  $t0, -84($sp)
+lw  $t0, -32($sp)
+sw  $t0, -88($sp)
+lw  $t0, -36($sp)
+sw  $t0, -92($sp)
+sw  $sp, -64($sp)
+addi $sp, $sp, -56
+jal   foo
 
 #JR   
 
-lw  $v0, -16($sp)
-lw  $ra, -20($sp)
-lw  $sp, -12($sp)
+lw  $v0, -44($sp)
+lw  $ra, -48($sp)
+lw  $sp, -40($sp)
 jr   $ra
 
 #LABEL   begin1
 
 begin1:   
 
-#CALL   p2
+#ADD 0 100 vn
 
-sw  $sp, -60($sp)
+addi $t1, $zero, 0
+addi $t2, $zero, 100
+add $t3, $t1, $t2
+sw  $t3, -52($sp)
+
+#PUSH   vn
+
+lw  $t1, -52($sp)
+addi $t2, $sp, -52
+sw  $t1, 0($s0)
+sw  $t2, -4($s0)
+
+#CALL   outter
+
+sw  $sp, -144($sp)
 lw  $t0, 0($sp)
-sw  $t0, -48($sp)
+sw  $t0, -104($sp)
 lw  $t0, -4($sp)
-sw  $t0, -52($sp)
+sw  $t0, -108($sp)
 lw  $t0, -8($sp)
-sw  $t0, -56($sp)
-sw  $sp, -52($sp)
-addi $sp, $sp, -48
-jal   p2
+sw  $t0, -112($sp)
+lw  $t0, -12($sp)
+sw  $t0, -116($sp)
+lw  $t0, -16($sp)
+sw  $t0, -120($sp)
+lw  $t0, -20($sp)
+sw  $t0, -124($sp)
+lw  $t0, -24($sp)
+sw  $t0, -128($sp)
+lw  $t0, -28($sp)
+sw  $t0, -132($sp)
+lw  $t0, -32($sp)
+sw  $t0, -136($sp)
+lw  $t0, -36($sp)
+sw  $t0, -140($sp)
+sw  $sp, -108($sp)
+addi $sp, $sp, -104
+jal   outter
 
-#ADD 0 1 a1
+#WRITE   out
 
-addi $t1, $zero, 0
-addi $t2, $zero, 1
-add $t3, $t1, $t2
+addi $v0, $zero, 1
+lw  $a0, -56($sp)
+syscall   
+
+#PUSH   99
+
+addi $t1, $zero, 99
+sw  $t1, 0($s0)
+
+#CALL   outter
+
+sw  $sp, -144($sp)
 lw  $t0, 0($sp)
-sw  $t3, -12($t0)
+sw  $t0, -104($sp)
+lw  $t0, -4($sp)
+sw  $t0, -108($sp)
+lw  $t0, -8($sp)
+sw  $t0, -112($sp)
+lw  $t0, -12($sp)
+sw  $t0, -116($sp)
+lw  $t0, -16($sp)
+sw  $t0, -120($sp)
+lw  $t0, -20($sp)
+sw  $t0, -124($sp)
+lw  $t0, -24($sp)
+sw  $t0, -128($sp)
+lw  $t0, -28($sp)
+sw  $t0, -132($sp)
+lw  $t0, -32($sp)
+sw  $t0, -136($sp)
+lw  $t0, -36($sp)
+sw  $t0, -140($sp)
+sw  $sp, -108($sp)
+addi $sp, $sp, -104
+jal   outter
 
-#ADD 0 1 l1
-
-addi $t1, $zero, 0
-addi $t2, $zero, 1
-add $t3, $t1, $t2
-sw  $t3, -24($sp)
-
-#WRITE   l1
+#WRITE   out
 
 addi $v0, $zero, 1
-lw  $a0, -24($sp)
+lw  $a0, -56($sp)
 syscall   
 
-#WRITE   l2
+#PUSH   98
+
+addi $t1, $zero, 98
+sw  $t1, 0($s0)
+
+#CALL   outter
+
+sw  $sp, -144($sp)
+lw  $t0, 0($sp)
+sw  $t0, -104($sp)
+lw  $t0, -4($sp)
+sw  $t0, -108($sp)
+lw  $t0, -8($sp)
+sw  $t0, -112($sp)
+lw  $t0, -12($sp)
+sw  $t0, -116($sp)
+lw  $t0, -16($sp)
+sw  $t0, -120($sp)
+lw  $t0, -20($sp)
+sw  $t0, -124($sp)
+lw  $t0, -24($sp)
+sw  $t0, -128($sp)
+lw  $t0, -28($sp)
+sw  $t0, -132($sp)
+lw  $t0, -32($sp)
+sw  $t0, -136($sp)
+lw  $t0, -36($sp)
+sw  $t0, -140($sp)
+sw  $sp, -108($sp)
+addi $sp, $sp, -104
+jal   outter
+
+#WRITE   out
 
 addi $v0, $zero, 1
-lw  $a0, -28($sp)
-syscall   
-
-#WRITE   l3
-
-addi $v0, $zero, 1
-lw  $a0, -32($sp)
-syscall   
-
-#WRITE   l4
-
-addi $v0, $zero, 1
-lw  $a0, -36($sp)
-syscall   
-
-#WRITE   l5
-
-addi $v0, $zero, 1
-lw  $a0, -40($sp)
-syscall   
-
-#WRITE   g2
-
-addi $v0, $zero, 1
-lw  $a0, -44($sp)
+lw  $a0, -56($sp)
 syscall   
 
 #JR   
 
-lw  $v0, -16($sp)
-lw  $ra, -20($sp)
-lw  $sp, -12($sp)
+lw  $v0, -44($sp)
+lw  $ra, -48($sp)
+lw  $sp, -40($sp)
 jr   $ra
 
 #LABEL   begin0
 
 begin0:   
 
-#CALL   p1
+#CALL   heh
 
-sw  $sp, -48($sp)
+sw  $sp, -92($sp)
 lw  $t0, 0($sp)
-sw  $t0, -36($sp)
+sw  $t0, -52($sp)
 lw  $t0, -4($sp)
-sw  $t0, -40($sp)
+sw  $t0, -56($sp)
 lw  $t0, -8($sp)
-sw  $t0, -44($sp)
-sw  $sp, -36($sp)
-addi $sp, $sp, -36
-jal   p1
-
-#WRITE   a1
-
-addi $v0, $zero, 1
-lw  $a0, -12($sp)
-syscall   
-
-#WRITE   a2
-
-addi $v0, $zero, 1
-lw  $a0, -16($sp)
-syscall   
-
-#WRITE   a3
-
-addi $v0, $zero, 1
-lw  $a0, -20($sp)
-syscall   
-
-#WRITE   a4
-
-addi $v0, $zero, 1
-lw  $a0, -24($sp)
-syscall   
-
-#WRITE   a5
-
-addi $v0, $zero, 1
-lw  $a0, -28($sp)
-syscall   
-
-#WRITE   g
-
-addi $v0, $zero, 1
-lw  $a0, -32($sp)
-syscall   
+sw  $t0, -60($sp)
+lw  $t0, -12($sp)
+sw  $t0, -64($sp)
+lw  $t0, -16($sp)
+sw  $t0, -68($sp)
+lw  $t0, -20($sp)
+sw  $t0, -72($sp)
+lw  $t0, -24($sp)
+sw  $t0, -76($sp)
+lw  $t0, -28($sp)
+sw  $t0, -80($sp)
+lw  $t0, -32($sp)
+sw  $t0, -84($sp)
+lw  $t0, -36($sp)
+sw  $t0, -88($sp)
+sw  $sp, -52($sp)
+addi $sp, $sp, -52
+jal   heh

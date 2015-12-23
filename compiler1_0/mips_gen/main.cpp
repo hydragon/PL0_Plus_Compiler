@@ -8,19 +8,19 @@
 
 using namespace std;
 
-const int displaylength = 3,    //display区在运行栈中的个数
-          spreturnshift = 36,   //过程返回时调用上层过程运行栈sp地址的存放地址
-          codereturnshift = 44, //过程返回时调用代码返回地址的存放地址
-          returnvalueshift = 40,//函数返回值存放地址
+const int displaylength = 10,    //display区在运行栈中的个数
+          spreturnshift = 40,   //过程返回时调用上层过程运行栈sp地址的存放地址
+          codereturnshift = 48, //过程返回时调用代码返回地址的存放地址
+          returnvalueshift = 44,//函数返回值存放地址
           parlistlength = 20;   //参数表在运行栈中的个数
 
 const int cmax = 800,//四元式表长度
           mmax = 3000,//mips表长度
           levelmax = 10,//嵌套最大层次
           tmax = 800;//符号表长度
-string spreturnshifts = "36",   //过程返回时调用上层过程运行栈sp地址的存放地址
-       codereturnshifts = "44", //过程返回时调用代码返回地址的存放地址
-       returnvalueshifts = "40";//函数返回值存放地址
+string spreturnshifts = "40",   //过程返回时调用上层过程运行栈sp地址的存放地址
+       codereturnshifts = "48", //过程返回时调用代码返回地址的存放地址
+       returnvalueshifts = "44";//函数返回值存放地址
 
 char ch;
 int cx = 0,
@@ -297,7 +297,7 @@ void gen_mips()
     tab[t].name = "_main";
     tab[t].level = level;
     tab[t].countt = 1;
-    tab[t].value = 3;
+    tab[t].value = displaylength + 3;
     tab[t].spshift = 0;
     tab[t].type = proc;
     display[level] = t;
@@ -530,7 +530,7 @@ void gen_mips()
             tab[t].name = four_codes[i].t3;
             tab[t].level = level;
             tab[t].countt = 0;
-            tab[t].value = 6;
+            tab[t].value = displaylength + 3;
             tab[t].spshift = 0;
             tab[t].vtype = 0;
             tab[t].type = (four_codes[i].t1 == "f")? func : proc;
