@@ -1,77 +1,96 @@
-0   . VART                                   0             
-1   . J                                      begin0        
-2   . DEC      p                             heh           
-3   . VAR      n              i              vn            
-4   . VAR      n              i              out           
-5   . VAR      n              i              i             
-6   . VAR      a              10             a             
-7   . VART                                   0             
-8   . J                                      begin1        
-9   . DEC      p                             outter        
-10  . PAR      n              i              y             
-11  . VART                                   0             
-12  . J                                      begin2        
-13  . DEC      p                             writeoo       
-14  . VART                                   0             
-15  . J                                      begin3        
-16  . LABEL                                  begin3        
-17  . WRITE                                  "  "          
-18  . JR                                                   
-19  . DEC      p                             foo           
-20  . PAR      n              i              y             
+0   . VAR      n              i              p             
+1   . VART                                   0             
+2   . J                                      begin0        
+3   . DEC      p                             test1         
+4   . PAR      n              i              p             
+5   . VART                                   0             
+6   . J                                      begin1        
+7   . DEC      p                             test2         
+8   . PAR      v              i              p             
+9   . VART                                   0             
+10  . J                                      begin2        
+11  . DEC      p                             test3         
+12  . PAR      v              i              p             
+13  . VART                                   0             
+14  . J                                      begin3        
+15  . DEC      p                             test4         
+16  . PAR      v              i              p             
+17  . VART                                   0             
+18  . J                                      begin4        
+19  . DEC      p                             test5         
+20  . PAR      v              i              p             
 21  . VART                                   0             
-22  . J                                      begin4        
-23  . DEC      p                             pcd           
-24  . PAR      n              i              x             
-25  . VAR      n              i              t             
-26  . VART                                   1             
-27  . J                                      begin5        
-28  . DEC      f                             sum           
-29  . PAR      v              i              x             
-30  . VAR      n              i              t             
-31  . VART                                   3             
-32  . J                                      begin6        
-33  . LABEL                                  begin6        
-34  . SUB      x              1              #0            
-35  . ADD      0              #0             t             
-36  . BNE      x              1              if0           
-37  . ADD      0              1              sum           
-38  . J                                      else0         
-39  . LABEL                                  if0           
-40  . PUSH                                   t             
-41  . CALL                                   sum           
-42  . ADD      sum            0              #1            
-43  . ADD      #1             x              #2            
-44  . ADD      0              #2             sum           
-45  . LABEL                                  else0         
-46  . JR                                                   
-47  . LABEL                                  begin5        
-48  . ADD      0              x              t             
-49  . PUSH                                   t             
-50  . CALL                                   sum           
-51  . ADD      sum            0              #0            
-52  . ADD      0              #0             out           
-53  . JR                                                   
-54  . LABEL                                  begin4        
-55  . PUSH                                   y             
-56  . CALL                                   pcd           
-57  . CALL                                   writeoo       
-58  . JR                                                   
-59  . LABEL                                  begin2        
-60  . PUSH                                   y             
-61  . CALL                                   foo           
-62  . JR                                                   
-63  . LABEL                                  begin1        
-64  . ADD      0              100            vn            
-65  . PUSH                                   vn            
-66  . CALL                                   outter        
-67  . WRITE                                  out           
-68  . PUSH                                   99            
-69  . CALL                                   outter        
-70  . WRITE                                  out           
-71  . PUSH                                   98            
-72  . CALL                                   outter        
-73  . WRITE                                  out           
-74  . JR                                                   
-75  . LABEL                                  begin0        
-76  . CALL                                   heh           
+22  . J                                      begin5        
+23  . DEC      p                             test6         
+24  . PAR      v              i              p             
+25  . VART                                   0             
+26  . J                                      begin6        
+27  . DEC      p                             test7         
+28  . PAR      v              i              p             
+29  . VART                                   0             
+30  . J                                      begin7        
+31  . DEC      p                             test8         
+32  . PAR      v              i              p             
+33  . VART                                   0             
+34  . J                                      begin8        
+35  . DEC      p                             test9         
+36  . PAR      v              i              p             
+37  . VART                                   0             
+38  . J                                      begin9        
+39  . LABEL                                  begin9        
+40  . WRITE                                  p             
+41  . ADD      0              9              p             
+42  . JR                                                   
+43  . LABEL                                  begin8        
+44  . PUSH                                   p             
+45  . CALL                                   test9         
+46  . WRITE                                  p             
+47  . ADD      0              8              p             
+48  . JR                                                   
+49  . LABEL                                  begin7        
+50  . PUSH                                   p             
+51  . CALL                                   test8         
+52  . WRITE                                  p             
+53  . ADD      0              7              p             
+54  . JR                                                   
+55  . LABEL                                  begin6        
+56  . PUSH                                   p             
+57  . CALL                                   test7         
+58  . WRITE                                  p             
+59  . ADD      0              6              p             
+60  . JR                                                   
+61  . LABEL                                  begin5        
+62  . PUSH                                   p             
+63  . CALL                                   test6         
+64  . WRITE                                  p             
+65  . ADD      0              5              p             
+66  . JR                                                   
+67  . LABEL                                  begin4        
+68  . PUSH                                   p             
+69  . CALL                                   test5         
+70  . WRITE                                  p             
+71  . ADD      0              4              p             
+72  . JR                                                   
+73  . LABEL                                  begin3        
+74  . PUSH                                   p             
+75  . CALL                                   test4         
+76  . WRITE                                  p             
+77  . ADD      0              3              p             
+78  . JR                                                   
+79  . LABEL                                  begin2        
+80  . PUSH                                   p             
+81  . CALL                                   test3         
+82  . WRITE                                  p             
+83  . ADD      0              2              p             
+84  . JR                                                   
+85  . LABEL                                  begin1        
+86  . PUSH                                   p             
+87  . CALL                                   test2         
+88  . WRITE                                  p             
+89  . ADD      0              1              p             
+90  . JR                                                   
+91  . LABEL                                  begin0        
+92  . ADD      0              10             p             
+93  . PUSH                                   p             
+94  . CALL                                   test1         
+95  . WRITE                                  p             

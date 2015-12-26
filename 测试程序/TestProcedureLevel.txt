@@ -57,6 +57,3 @@ begin
 	test1(p);
 	write(p);
 end.
-
-
-
