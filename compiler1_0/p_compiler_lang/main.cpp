@@ -580,21 +580,7 @@ void procdeclare()
         if(sy == comma)
             nextsym();
     }
- /*   level += 1;             //level+1,进入下一层分程序，更改display区。
-    if(level >= lmax){
-        error(34);  //嵌套层次过多
-        exit(-1);
-    }
-    if(b >= bmax){
-        error(35);  //分程序表溢出
-        exit(-1);
-    }
-    b = b + 1;
-    btab[b].last = 0;
-    btab[b].lastpar = 0;
-    btab[b].pnum = paranumber;
-    display[level] = b;
-    tab[prt].refer = b;//printf("%s %d\n",tab[prt].name.c_str(), tab[prt].refer);*/
+
     btab[b].pnum = paranumber;//参数个数统计
 
     block();                //进入下一层分程序
@@ -1217,6 +1203,7 @@ void compiler_shell(){
             freopen("CON", "r", stdin);
             printf("\nError: Can't found the file!\n\n");
         }
+        break;
     }
 }
 

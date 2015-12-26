@@ -1,62 +1,8 @@
-var p:integer;
-procedure test1(p:integer);
-	procedure test2(var p:integer);
-		procedure test3(var p:integer);
-			procedure test4(var p:integer);
-				procedure test5(var p:integer);
-					procedure test6(var p:integer);
-						procedure test7(var p:integer);
-							procedure test8(var p:integer);
-								procedure test9(var p:integer);
-								begin
-									write(p);
-									p := 9;
-								end;
-							begin
-								test9(p);
-								write(p);
-								p := 8;
-							end;
-						begin
-							test8(p);
-							write(p);
-							p := 7;
-						end;
-					begin
-						test7(p);
-						write(p);
-						p := 6;
-					end;
-				begin
-					test6(p);
-					write(p);
-					p := 5;
-				end;
-			begin
-				test5(p);
-				write(p);
-				p := 4;
-			end;
-		begin
-			test4(p);
-			write(p);
-			p := 3;
-		end;
-	begin
-		test3(p);
-		write(p);
-		p := 2;
-	end;
+const defa = 'a';
+function genchar:char;
 begin
-	test2(p);
-	write(p);
-	p := 1;
+	genchar := defA;
 end;
 begin
-	p := 10;
-	test1(p);
-	write(p);
+	write(defa)
 end.
-
-
-

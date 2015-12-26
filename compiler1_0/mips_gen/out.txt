@@ -1,96 +1,11 @@
-0   . VAR      n              i              p             
+0   . CON      'a'                           defa          
 1   . VART                                   0             
 2   . J                                      begin0        
-3   . DEC      p                             test1         
-4   . PAR      n              i              p             
-5   . VART                                   0             
-6   . J                                      begin1        
-7   . DEC      p                             test2         
-8   . PAR      v              i              p             
-9   . VART                                   0             
-10  . J                                      begin2        
-11  . DEC      p                             test3         
-12  . PAR      v              i              p             
-13  . VART                                   0             
-14  . J                                      begin3        
-15  . DEC      p                             test4         
-16  . PAR      v              i              p             
-17  . VART                                   0             
-18  . J                                      begin4        
-19  . DEC      p                             test5         
-20  . PAR      v              i              p             
-21  . VART                                   0             
-22  . J                                      begin5        
-23  . DEC      p                             test6         
-24  . PAR      v              i              p             
-25  . VART                                   0             
-26  . J                                      begin6        
-27  . DEC      p                             test7         
-28  . PAR      v              i              p             
-29  . VART                                   0             
-30  . J                                      begin7        
-31  . DEC      p                             test8         
-32  . PAR      v              i              p             
-33  . VART                                   0             
-34  . J                                      begin8        
-35  . DEC      p                             test9         
-36  . PAR      v              i              p             
-37  . VART                                   0             
-38  . J                                      begin9        
-39  . LABEL                                  begin9        
-40  . WRITE                                  p             
-41  . ADD      0              9              p             
-42  . JR                                                   
-43  . LABEL                                  begin8        
-44  . PUSH                                   p             
-45  . CALL                                   test9         
-46  . WRITE                                  p             
-47  . ADD      0              8              p             
-48  . JR                                                   
-49  . LABEL                                  begin7        
-50  . PUSH                                   p             
-51  . CALL                                   test8         
-52  . WRITE                                  p             
-53  . ADD      0              7              p             
-54  . JR                                                   
-55  . LABEL                                  begin6        
-56  . PUSH                                   p             
-57  . CALL                                   test7         
-58  . WRITE                                  p             
-59  . ADD      0              6              p             
-60  . JR                                                   
-61  . LABEL                                  begin5        
-62  . PUSH                                   p             
-63  . CALL                                   test6         
-64  . WRITE                                  p             
-65  . ADD      0              5              p             
-66  . JR                                                   
-67  . LABEL                                  begin4        
-68  . PUSH                                   p             
-69  . CALL                                   test5         
-70  . WRITE                                  p             
-71  . ADD      0              4              p             
-72  . JR                                                   
-73  . LABEL                                  begin3        
-74  . PUSH                                   p             
-75  . CALL                                   test4         
-76  . WRITE                                  p             
-77  . ADD      0              3              p             
-78  . JR                                                   
-79  . LABEL                                  begin2        
-80  . PUSH                                   p             
-81  . CALL                                   test3         
-82  . WRITE                                  p             
-83  . ADD      0              2              p             
-84  . JR                                                   
-85  . LABEL                                  begin1        
-86  . PUSH                                   p             
-87  . CALL                                   test2         
-88  . WRITE                                  p             
-89  . ADD      0              1              p             
-90  . JR                                                   
-91  . LABEL                                  begin0        
-92  . ADD      0              10             p             
-93  . PUSH                                   p             
-94  . CALL                                   test1         
-95  . WRITE                                  p             
+3   . DEC      f                             genchar       
+4   . VART                                   0             
+5   . J                                      begin1        
+6   . LABEL                                  begin1        
+7   . ADD      0              defa           genchar       
+8   . JR                                                   
+9   . LABEL                                  begin0        
+10  . WRITE                                  defa          

@@ -125,7 +125,7 @@ void print_four_code()
 {
     int i;
     string op;
-    freopen("out.txt","w", stdout);
+    freopen("..\\mips_gen\\out.txt","w", stdout);
 
     for(i = 0; i < fc; i++){
         switch(four_codes[i].op){
