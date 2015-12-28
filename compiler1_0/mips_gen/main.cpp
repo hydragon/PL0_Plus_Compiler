@@ -69,6 +69,8 @@ struct table tab[tmax];            //符号表
 
 int display[levelmax];          //display区
 
+extern void optimize_dag();
+
 using namespace std;
 
 void getch()                    //读取一个字符
