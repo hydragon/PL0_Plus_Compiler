@@ -1,0 +1,19 @@
+const first = 1, last = 10;
+var i:integer;
+procedure fortest;
+var testresult:integer;
+begin
+	for i:= first to last do
+		begin
+			testresult := i;
+			write(testresult);
+		end;
+	for i:= 10 downto 1 do
+		begin
+			testresult := i;
+			write(testresult);
+		end;
+end;
+begin
+	fortest;
+end.

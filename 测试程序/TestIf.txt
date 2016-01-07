@@ -1,0 +1,38 @@
+const ca = 'a',cb = 'b',cc = 'c';
+var a,b,c:char;
+function testif(testchar:char):integer;
+begin
+	if testchar = ca then
+		testif := 1
+	else if testchar = cb then
+		testif := 2;
+	if testchar = cc then
+		testif := 3
+end;
+begin
+	a := ca;
+	b := cb;
+	c := cc;
+	if testif(a) = 1 then
+	begin
+		write("good ", a);
+		write(" ");
+	end
+	else
+		write("false ");
+	if testif(b) = 2 then
+	begin
+		write("good ", b);
+		write(" ");
+	end
+	else
+		write("false ");
+	if testif(c) = 3 then
+	begin
+		write("good ", c);
+		write(" ");
+	end
+	else
+		write("false ");
+end.
+	

@@ -178,11 +178,6 @@ void nextsym()                                          //读取一个单词
 
 *************/
 
-void skip(int n)
-{
-
-}
-
 void entertable(string name, enum objecttype k)     //将一个标识符写入符号表
 {
     int j,l;

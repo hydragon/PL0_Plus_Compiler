@@ -1,0 +1,92 @@
+const listlength = 19;
+var x, y, p, searchr:integer; c1, c2 :char; list:array[20]of integer;
+procedure sort;			
+	var i,j,tmp:integer;
+	begin
+		for i := 0 to listlength-1 do
+			begin
+				for j := i+1 to listlength do
+					begin
+						if list[i] > list[j] then
+							begin
+								tmp := list[i];
+								list[i] := list[j];
+								list[j] :=tmp
+							end
+					end
+			end
+	end;
+function halfsearch (i,j,no:integer; var place:integer):integer;	
+	var half:integer;
+	begin
+		if i >= j then
+			begin
+				if list[i] = no then
+					begin
+						place := i;
+						halfsearch := place
+					end
+				else
+					begin
+						place := -1;
+						halfsearch := -1
+					end
+			end
+		else
+			begin
+				half := (i+j)/2;
+				if list[half] = no then
+					begin
+						place := half;
+						halfsearch := place
+					end
+				else
+					begin
+						if list[half] > no then
+							begin
+								j := half - 1;
+								searchr := halfsearch(i,j,no,place)
+							end
+						else
+							searchr := halfsearch(half+1,j,no,place)
+					end
+			end
+	end;
+procedure testcase;				
+	var rc:char; ri:integer;
+	begin
+		read(rc);
+		ri := 10;
+		case rc of
+			'1': begin
+					write(rc);
+					ri := 1
+				end;
+			'2': begin
+					write("Itis2");
+					ri := 2
+				end;
+			'3': begin
+					write("It is 3");
+					ri := 3
+				end
+		end;
+		y := ri*2
+	end;
+begin
+	y := 0;
+	testcase;
+	for x := 19 downto 0 do
+		list[x] := x*2
+	;
+	sort;
+	searchr := halfsearch(1,20,y,p);
+	for x := 0 to 19 do
+    	write(" ", list[x]);
+    write(" ");
+	if p>=0 then
+		write(" ", list[p]);
+	write(" ");
+	write(y);
+	x := 0
+end.

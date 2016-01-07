@@ -1,0 +1,8 @@
+procedure test;
+var a:integer;
+begin
+	a := 1;
+end;
+begin
+	a := 1;
+end.

@@ -1,11 +1,7 @@
-0   . CON      'a'                           defa          
+0   . VAR      n              i              i             
 1   . VART                                   0             
 2   . J                                      begin0        
-3   . DEC      f                             genchar       
-4   . VART                                   0             
-5   . J                                      begin1        
-6   . LABEL                                  begin1        
-7   . ADD      0              defa           genchar       
-8   . JR                                                   
-9   . LABEL                                  begin0        
-10  . WRITE                                  defa          
+3   . LABEL                                  begin0        
+4   . BNE      i              1              if0           
+5   . ADD      0              2              i             
+6   . LABEL                                  if0           

@@ -1,0 +1,33 @@
+const ca = 'a',cb = 'b',cc = 'c';
+var vc:char; vi:integer;
+procedure testcase1(c:char);
+begin
+	case c of
+	'a' : write("a ");
+	'b' : write("b ");
+	'c' : write("c ");
+	end
+end;
+procedure testcase2(i:integer);
+begin
+	case i of
+	1 : write("1 ");
+	2 : write("2 ");
+	3 : write("3 ");
+	end
+end;
+begin
+	vc := ca;
+	testcase1(vc);
+	vc := cb;
+	testcase1(vc);
+	vc := cc;
+	testcase1(vc);
+	vi := 1;
+	testcase2(vi);
+	vi := 2;
+	testcase2(vi);
+	vi := 3;
+	testcase2(vi);
+end.
+	
