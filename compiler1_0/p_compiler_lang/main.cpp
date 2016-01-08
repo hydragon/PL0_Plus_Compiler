@@ -608,14 +608,16 @@ string arrayselector()          //数组选取
 
 void call(int btabrefer, string procname)
 {
-    string paraname;
-    int paranumber = 0;
+    string paraname[20];
+
+    int paranumber = 0,
+        paracount = 0;
     //printf("Line%d: char(%d): This is a call.\n", cx , ll);
     if(sy == lparent){
         do{
             nextsym();
-            paraname = simpleexp();
-            gen_code(PUSH, "", "", paraname);
+            paraname[paranumber] = simpleexp();
+   //         gen_code(PUSH, "", "", paraname);
             paranumber += 1;
         }while(sy == comma);
         if(sy == rparent){
@@ -623,6 +625,11 @@ void call(int btabrefer, string procname)
         }
         else
             error(16);   //缺右括号
+
+        while(paracount < paranumber){  //生成传参数的四元式
+            gen_code(PUSH, "", "", paraname[paracount]);
+            paracount++;
+        }
     }
 
     gen_code(CALL, "", "", procname);
@@ -1204,27 +1211,7 @@ void compiler_shell(){
 
 int main()          //主函数
 {
-
     compiler_shell();
-/*    freopen("test.txt", "r", stdin);
-  //  freopen("out.txt","w", stdout);
-    setup();
-    nextsym();
-    block();
-    print_four_code();
-/*    for(;ch != EOF;){       //输出词法分析结果
-        nextsym();
-        if( sy != nul ){
-            if( cc == 0 ){
-                printf("Line%d: char(%d): %s --> %s\n", cx , ll, symbolname[sy].c_str(), alfa.c_str());
-                printf("\n----line%d----\n\n",cx);
-            }
-            else{
-                printf("Line%d: char(%d): %s --> %s\n", cx + 1, cc, symbolname[sy].c_str(), alfa.c_str());
-            }
-        }
-        if( sy == period )
-            break;
-    }*/
+
     return 0;
 }//main end

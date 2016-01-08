@@ -1,7 +1,46 @@
 0   . VAR      n              i              i             
-1   . VART                                   0             
-2   . J                                      begin0        
-3   . LABEL                                  begin0        
-4   . BNE      i              1              if0           
-5   . ADD      0              2              i             
-6   . LABEL                                  if0           
+1   . VAR      n              i              k             
+2   . VAR      a              10             a             
+3   . VAR      n              c              c             
+4   . VAR      a              3              d             
+5   . VART                                   1             
+6   . J                                      begin0        
+7   . DEC      p                             p1            
+8   . VAR      n              i              j             
+9   . VART                                   0             
+10  . J                                      begin1        
+11  . DEC      f                             f1            
+12  . PAR      n              i              i             
+13  . VART                                   0             
+14  . J                                      begin2        
+15  . LABEL                                  begin2        
+16  . JR                                                   
+17  . LABEL                                  begin1        
+18  . JR                                                   
+19  . DEC      p                             p2            
+20  . PAR      n              i              z             
+21  . PAR      n              c              m             
+22  . VART                                   0             
+23  . J                                      begin3        
+24  . DEC      p                             f1            
+25  . VART                                   0             
+26  . J                                      begin4        
+27  . LABEL                                  begin4        
+28  . JR                                                   
+29  . LABEL                                  begin3        
+30  . JR                                                   
+31  . DEC      f                             f1            
+32  . PAR      n              i              a             
+33  . PAR      n              i              b             
+34  . VART                                   0             
+35  . J                                      begin5        
+36  . DEC      f                             p2            
+37  . VART                                   0             
+38  . J                                      begin6        
+39  . LABEL                                  begin6        
+40  . JR                                                   
+41  . LABEL                                  begin5        
+42  . JR                                                   
+43  . LABEL                                  begin0        
+44  . ADD      i              1              #0            
+45  . ADD      0              #0             i             

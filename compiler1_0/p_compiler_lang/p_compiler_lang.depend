@@ -97,11 +97,11 @@
 1450578389 e:\Брвы\compiler1_0\p_compiler_lang\four_code.h
 	"compiler_head.h"
 
-1450663307 source:e:\Брвы\pl0_plus_compiler\compiler1_0\p_compiler_lang\main.cpp
+1452249794 source:e:\Брвы\pl0_plus_compiler\compiler1_0\p_compiler_lang\main.cpp
 	"compiler_head.h"
 	"four_code.h"
 
-1450010660 e:\Брвы\pl0_plus_compiler\compiler1_0\p_compiler_lang\compiler_head.h
+1450882114 e:\Брвы\pl0_plus_compiler\compiler1_0\p_compiler_lang\compiler_head.h
 	<cstdio>
 	<cstring>
 	<algorithm>
@@ -109,6 +109,6 @@
 	<fstream>
 	<iostream>
 
-1450579293 e:\Брвы\pl0_plus_compiler\compiler1_0\p_compiler_lang\four_code.h
+1451289513 e:\Брвы\pl0_plus_compiler\compiler1_0\p_compiler_lang\four_code.h
 	"compiler_head.h"
 
